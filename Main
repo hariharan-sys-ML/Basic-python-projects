@@ -1,0 +1,15 @@
+from operator import truediv
+
+from question_model import Question
+from data import question_data
+from quiz_brain import QuizBrain
+
+Question_bank = []
+for q in question_data:
+    question = Question(q["text"],q["answer"])
+    Question_bank.append(question)
+
+quiz = QuizBrain(Question_bank)
+while quiz.Still_has_questions():
+    quiz.Next_question()
+
